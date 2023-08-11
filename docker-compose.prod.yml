@@ -14,9 +14,7 @@ services:
         condition: on-failure
     build: 
       context: .
-      args:
-        - NODE_ENV=development
-    command: npm run dev
+    command: npm start
     working_dir: /app
     environment:
       NODE_ENV: ${NODE_ENV}
