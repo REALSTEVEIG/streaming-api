@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_89096caee04a4894881e06c98f9b9e32 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_3fce60f52fe14d96b007d3559805c57e }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_0f0473e400294b1f84c0c1cd178a435f }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_c0934b72d2d94b998ccf6c8d983f59f2 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_89096caee04a4894881e06c98f9b9e32 }}/realsteve/streaming-api:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_0f0473e400294b1f84c0c1cd178a435f }}/realsteve/streaming-api:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'streamingapiktn'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a4713a106b81456a817b1b4c58265e6a }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_89096caee04a4894881e06c98f9b9e32 }}/realsteve/streaming-api:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_3504e8279b6b492292a3d78b13ddade9 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_0f0473e400294b1f84c0c1cd178a435f }}/realsteve/streaming-api:${{ github.sha }}'
