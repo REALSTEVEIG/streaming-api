@@ -144,7 +144,7 @@ class UserService {
       let user = await this.userRepo.getAll({ query: { email: data.email } });
 
       if (!user.data || !user.data.length) {
-        user.message = `Your account is not found. Kindly try again or create one`;
+        user.message = `Your account is not found. Kindly try again or create one!`;
         user.data = null;
         user.success = false;
         user.status = this.httpHandler.ERROR_400;
